@@ -23,5 +23,52 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new friendlyErrorsWebpackPlugin()
-  ]
+  ],
+  module: {
+    rules: [
+      // JavaScript
+      {
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      },
+      // CSS, PostCSS, and Sass
+      {
+        test: /\.(scss|css)$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1
+            }
+          },
+          'postcss-loader'
+        ]
+      },
+      // 加载图片资源
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        type: 'asset/resource'
+      },
+      // 加载字体资源
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        type: 'asset/inline'
+      },
+      {
+        test: /\.ico$/i,
+        use: 'asset/inline'
+      },
+      {
+        test: /\.text$/i,
+        use: 'asset/source'
+      }
+    ]
+  }
 }
