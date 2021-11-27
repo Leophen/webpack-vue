@@ -1,6 +1,5 @@
-// webpack.config.js
-
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   mode: 'development',
@@ -13,5 +12,12 @@ module.exports = {
     path: path.resolve(__dirname, './dist'),
     // [name] 是个占位符，等价于 entry 中定义的 key 值，即 app
     filename: '[name].bundle.js'
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'webpack 搭建 vue 项目',
+      template: path.resolve(__dirname, './public/index.html'),
+      filename: 'index.html'
+    })
+  ]
 }
