@@ -16,7 +16,7 @@ module.exports = {
   },
   // 入口文件，webpack 会首先从这里开始编译
   entry: {
-    app: './src/index.js'
+    app: './src/index.ts'
   },
   // 定义了打包后输出的位置，以及对应的文件名
   output: {
@@ -77,6 +77,12 @@ module.exports = {
       {
         test: /\.text$/i,
         use: 'asset/source'
+      },
+      // TypeScript
+      {
+        test: /\.ts$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
       }
     ]
   }
