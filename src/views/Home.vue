@@ -1,11 +1,20 @@
 <template>
-  <div>首页</div>
+  <div>首页{{count}}</div>
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
+import { defineComponent, computed } from 'vue'
+import { useStore } from 'vuex'
 
 export default defineComponent({
-  name: 'Home'
+  name: 'Home',
+  setup() {
+    const store = useStore()
+    const count = computed(() => store.state.count)
+
+    return {
+      count
+    }
+  }
 })
 </script>
