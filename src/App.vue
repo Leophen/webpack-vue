@@ -1,6 +1,5 @@
 <template>
   <div id="nav">
-    123
     <router-link to="/">Home</router-link> |
     <router-link to="/page2">Page2</router-link>
   </div>
@@ -12,6 +11,7 @@
   padding: 30px;
 
   a {
+    font-size: 24px;
     font-weight: bold;
     color: #2c3e50;
 
