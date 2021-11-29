@@ -29,5 +29,10 @@
     "start": "webpack serve",
     "build": "webpack",
     "watch": "webpack --watch"
+  },
+  "dependencies": {
+    "@vue/compiler-sfc": "^3.2.23",
+    "vue": "^3.2.23",
+    "vue-loader": "^16.8.3"
   }
 }

@@ -2,6 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const friendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+const { VueLoaderPlugin } = require('vue-loader/dist/index')
 
 module.exports = {
   mode: 'development',
@@ -16,7 +17,7 @@ module.exports = {
   },
   // 入口文件，webpack 会首先从这里开始编译
   entry: {
-    app: './src/index.ts'
+    app: './src/main.ts'
   },
   // 定义了打包后输出的位置，以及对应的文件名
   output: {
@@ -31,7 +32,8 @@ module.exports = {
       filename: 'index.html'
     }),
     new CleanWebpackPlugin(),
-    new friendlyErrorsWebpackPlugin()
+    new friendlyErrorsWebpackPlugin(),
+    new VueLoaderPlugin()
   ],
   module: {
     rules: [
@@ -83,6 +85,11 @@ module.exports = {
         test: /\.ts$/,
         use: 'ts-loader',
         exclude: /node_modules/
+      },
+      // Vue
+      {
+        test: /\.vue$/,
+        use: 'vue-loader'
       }
     ]
   }
