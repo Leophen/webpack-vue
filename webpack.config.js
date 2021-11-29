@@ -11,6 +11,9 @@ module.exports = {
     hot: true,
     port: 8080
   },
+  resolve: {
+    extensions: ['.js', '.vue']
+  },
   // 入口文件，webpack 会首先从这里开始编译
   entry: {
     app: './src/index.js'
