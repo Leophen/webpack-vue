@@ -1,20 +1,23 @@
 <template>
-  <div>
-    <div>Vue</div>
-    <p>{{ name }}</p>
+  <div id="nav">
+    123
+    <router-link to="/">Home</router-link> |
+    <router-link to="/page2">Page2</router-link>
   </div>
+  <router-view/>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from 'vue'
+<style lang="scss">
+#nav {
+  padding: 30px;
 
-export default defineComponent({
-  setup() {
-    const name = ref('txm')
+  a {
+    font-weight: bold;
+    color: #2c3e50;
 
-    return {
-      name
+    &.router-link-exact-active {
+      color: #42b983;
     }
   }
-})
-</script>
+}
+</style>

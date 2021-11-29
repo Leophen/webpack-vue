@@ -13,7 +13,7 @@ module.exports = {
     port: 8080
   },
   resolve: {
-    extensions: ['.js', '.vue']
+    extensions: ['.js', '.ts', '.vue']
   },
   // 入口文件，webpack 会首先从这里开始编译
   entry: {
